@@ -469,7 +469,7 @@ COMMENT ON COLUMN order_items.quantity
 COMMENT ON COLUMN order_items.shipment_id
   IS 'Where this product will be delivered';
 
-COMMENT ON TABLE customer_order_products
+COMMENT ON VIEW customer_order_products
   IS 'A summary of who placed each order and what they bought';
 
 COMMENT ON COLUMN customer_order_products.order_id
@@ -496,7 +496,7 @@ COMMENT ON COLUMN customer_order_products.order_total
 COMMENT ON COLUMN customer_order_products.items
   IS 'A comma-separated list naming the products in this order';
 
-COMMENT ON TABLE store_orders
+COMMENT ON VIEW store_orders
   IS 'A summary of what was purchased at each location, including summaries each store, order status and overall total';
 
 COMMENT ON COLUMN store_orders.order_status
@@ -523,7 +523,7 @@ COMMENT ON COLUMN store_orders.total_sales
 COMMENT ON COLUMN store_orders.order_count
   IS 'The total number of orders placed';
 
-COMMENT ON TABLE product_reviews
+COMMENT ON VIEW product_reviews
   IS 'A relational view of the reviews stored in the JSON for each product';
 
 COMMENT ON COLUMN product_reviews.product_name
@@ -538,7 +538,7 @@ COMMENT ON COLUMN product_reviews.avg_rating
 COMMENT ON COLUMN product_reviews.review
   IS 'The text of the review';
 
-COMMENT ON TABLE product_orders
+COMMENT ON VIEW product_orders
   IS 'A summary of the state of the orders placed for each product';
 
 COMMENT ON COLUMN product_orders.product_name
