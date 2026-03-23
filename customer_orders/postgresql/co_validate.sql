@@ -389,9 +389,7 @@ BEGIN
   FOR idx IN 1..array_length(tables, 1) LOOP
     tbl := tables[idx];
     col := cols[idx];
-    EXECUTE format('SELECT last_value FROM pg_get_serial_sequence(%L, %L)', tbl, col)
-      INTO seq_val;
-    -- Actually query the sequence
+    -- Query the identity sequence's last_value
     EXECUTE format('SELECT last_value FROM %s', pg_get_serial_sequence(tbl, col))
       INTO seq_val;
     EXECUTE format('SELECT MAX(%I) FROM %I', col, tbl) INTO max_val;
