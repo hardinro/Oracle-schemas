@@ -45,7 +45,12 @@
 \set ON_ERROR_STOP on
 
 -- Use a default schema name of 'co' if not provided via -v co_schema=...
-SELECT COALESCE(:'co_schema', 'co') AS co_schema_name \gset
+\if :{?co_schema}
+  -- co_schema variable was provided via -v
+\else
+  \set co_schema co
+\endif
+\set co_schema_name :co_schema
 
 \echo 'Dropping CO schema...'
 
