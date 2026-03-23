@@ -69,7 +69,11 @@
 -- =======================================================
 
 -- Use the co_schema variable if provided, otherwise default to 'co'
-SELECT COALESCE(:'co_schema', 'co') AS schema_name \gset
+\if :{?co_schema}
+\else
+  \set co_schema co
+\endif
+SELECT :'co_schema' AS schema_name \gset
 
 -- Drop existing schema if present (idempotent reinstall)
 DROP SCHEMA IF EXISTS :schema_name CASCADE;
